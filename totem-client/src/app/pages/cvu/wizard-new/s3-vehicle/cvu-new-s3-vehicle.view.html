@@ -1,0 +1,82 @@
+<div class="fullpage wizard">
+
+  <div class="wizard-header">
+    <button type="submit" class="bt-button bt-text-button wizard-header-left-button" 
+      ripple ripple-class="ripple" ripple-callback="goBack()" ripple-radius="40">
+      <span class="material-icons md-36" >west</span>
+      Atras
+    </button>
+    <h2>Solicitud de nuevo tag</h2>
+  </div>
+
+  <div class="wizard-body">
+    <div class="card" style="width: 75%;padding-bottom: 30px;">
+      
+      <h1>Datos del vehículo</h1>
+
+      <div>
+
+        <div class="step-instructions">
+          Ingrese los datos de su vehículo
+        </div>
+
+        <form class="wizard-form" id="s2Form" name="s2Form" novalidate autocomplete="off">
+
+          <div class="form-group" style="margin-top:20px">
+            <label>Marca</label>
+            <div class="form-value-label">{{data.vehicleBrand.name}}</div>
+            <div class="field-error-cntr" ng-if="data.vehicleBrand.length == 0 && showErrors">
+              <p class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor seleccione una marca del vechículo</p>
+            </div>
+            <button class="bt-button bt-link-button" type="button"   
+              ripple ripple-class="ripple" ripple-callback="pickBrand()" ripple-radius="40">
+              {{ data.vehicleBrand.length == 0 ? 'Seleccionar' : 'Cambiar' }}
+            </button>
+          </div>
+
+          <div class="form-group" style="margin-top:60px">
+            <label>Modelo</label>
+            <div class="form-value-label">{{data.vehicleModel.name}}</div>
+            <div class="field-error-cntr" ng-if="data.vehicleModel.length == 0 && showErrors" >
+              <p class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor seleccione un modelo del vechículo</p>
+            </div>
+            <button class="bt-button bt-link-button" type="button" 
+              ripple ripple-class="ripple" ripple-callback="pickModel()" ripple-radius="40">
+              {{ data.vehicleModel.length == 0 ? 'Seleccionar' : 'Cambiar' }}
+            </button>
+          </div>
+
+          <div class="form-group" style="margin-top:60px;margin-bottom:20px;">
+            <label>Color</label>
+            <div class="form-value-label">{{data.vehicleColor.name}}</div>
+            <div class="field-error-cntr" ng-if="data.vehicleColor.length == 0 && showErrors">
+              <p class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor seleccione un color del vechículo</p>
+            </div>
+            <button class="bt-button bt-link-button" type="button" 
+              ripple ripple-class="ripple" ripple-callback="pickColor()" ripple-radius="40">
+              {{ data.vehicleColor.length == 0 ? 'Seleccionar' : 'Cambiar' }}
+            </button>
+          </div>
+
+          <button type="button" class="bt-button bt-primary-button bt-button-icon-right" style="margin-top:40px" ng-disabled="!s2Form.$valid || !isDataValid()"
+            ripple ripple-class="ripple" ripple-callback="continue(s2Form.$valid)" ripple-radius="40">
+            Continuar
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <div style="position: absolute;bottom: 50px;">
+      <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px" 
+        ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+        Cancelar
+      </button>
+    </div>
+    
+  </div>
+  
+</div>
+
+<keyboard ng-show="showKeyboard" layout="'default'" input="keyboardInput" form-name="'s1Form'"></keyboard>

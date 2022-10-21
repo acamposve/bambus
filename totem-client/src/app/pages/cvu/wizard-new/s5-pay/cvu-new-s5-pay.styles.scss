@@ -1,0 +1,42 @@
+cvu-new-step5-pay {
+  display: flex;
+  text-align: center;
+  background: linear-gradient(0deg, rgba(132,206,230,1) 0%, rgba(92,147,204,1) 100%);
+
+  .instructions-bullets{
+    margin: 0 auto;
+    text-align: left;
+    max-width: 500px;
+    // background-color: mediumspringgreen;
+    ul {
+      counter-reset: section;
+      list-style: none;
+    }
+    
+    li {
+      margin: 30px 0 10px 0;
+      line-height: 40px;
+      font-size: 27px;
+    }
+    
+    li:before {
+      content: counter(section);
+      counter-increment: section;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 0 20px 0 -60px;
+      // border: 1px solid #ccc;
+      background-color: #5e96cd;
+      border-radius: 100%;
+      text-align: center;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 30px;
+      padding-top: 4px;
+      position: absolute;
+    }
+  }
+}
+
+

@@ -1,0 +1,55 @@
+<div class="fullpage wizard">
+
+ 
+  <div class="wizard-body">
+    <div ng-if="completed">
+      <div class="card" style="width: 100%;padding: 30px;min-width: 700px;">
+        
+        <span class="material-icons-outlined" style="font-size: 120px;color: #4caf50;">
+          check_circle
+        </span>
+
+        <h1>Recarga completada con éxito</h1>
+        
+  
+        <div class="step-instructions" style="color:#111111">
+          La cuenta ya fue recargada y puede comenzar a usarse. <br>
+          Le llegará una notificación de la transacción vía correo electrónico.
+        </div> 
+
+        <div style="text-align: center;display:flex;justify-content: center;">
+          <button type="submit" class="bt-button bt-primary-button bt-green-button bt-button-big" style="margin-top:40px"
+            ng-click="finish()">
+            TERMINAR
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div ng-if="!completed">
+
+      <div class="card" style="width: 100%;padding: 30px;min-width: 700px;">
+        <span class="material-icons-outlined" style="font-size: 120px;color: #ff5722;">
+          highlight_off
+        </span>
+
+        <h1>Recarga cancelada</h1>
+  
+        <div class="step-instructions" style="color:#111111;">
+          La recarga no se ha completado. <br>
+          Puede volver a intentarlo.
+        </div> 
+
+        <div style="text-align: center;display:flex;justify-content: center;">
+          <button type="submit" class="bt-button bt-primary-button bt-green-button bt-button-big" style="margin-top:40px"
+            ng-click="finish()">
+            TERMINAR
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</div>

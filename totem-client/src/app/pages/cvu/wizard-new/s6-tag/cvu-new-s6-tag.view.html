@@ -1,0 +1,113 @@
+<div class="fullpage wizard">
+
+  <div class="wizard-header">
+    <h2>Compra de nuevo tag</h2>
+  </div>
+
+  
+  <div class="wizard-body">
+      
+      <div class="card" style="width: 75%;">
+        <h1>Retire y escanee el tag</h1>
+    
+        <div class="step-instructions" style="color:#111111">
+          Por favor retire el tag del expendedor y coloquelo en el lector de codigos de barra
+        </div> 
+        
+        <!-- div style="width: 100%;min-height: 350px;position: relative;">
+          <div class="preloader-scan" style="transform: scale(2);">
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              
+              <div class="diode">
+                <div class="laser"></div>
+              </div>
+            </ul>
+            
+          </div>
+        </div-->
+
+
+        <div style="width: 100%;min-height: 350px;position: relative;">
+          <div>
+            <img src="assets/img/tag.png" style="width: 433px;">
+            <div class="diode">
+              <div class="laser"></div>
+            </div>
+          </div>
+        </div>
+
+        
+
+
+        <div ng-if="data.printQty > 1" style="
+          display: flex;
+          width: 80%;
+          padding: 15px;
+          background-color: #fff9c4;
+          margin: 20px auto 40px auto;
+          border-radius: 13px;">
+          <div style="min-width: 70px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true" style="font-size: 40px;"></span>
+          </div>
+          <div style="text-align: left;padding-left: 10px;">
+            <div style="font-weight: 600;font-size: 24px;">
+              ATENCION!
+            </div>
+            <div style="font-size: 20px;line-height: 25px;">
+              Se imprimieron <strong>{{data.printQty}}</strong> TAGs. Utilice <strong>SOLO</strong> el que <strong>NO ESTA</strong> marcado con unas cruces.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="scanCompleted" style="margin: 40px 0px;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      <div ng-if="!scanCompleted" style="height:240px"></div>
+
+      <div class="bt-status-box">{{status}}</div>
+      
+    </div>
+
+
+    <!-- <div style="position:absolute;bottom: 50px;right: 50px;width: 1000px;display: flex;justify-content: flex-end;">
+      <button type="submit" class="bt-button" ng-click="simulateScan()" style="margin-right: 20px;">
+        Simular correcto
+      </button>
+      <button type="submit" class="bt-button" ng-click="simulateScanWrong()">
+        Simular erróneo
+      </button>
+    </div> -->
+
+  
+</div>

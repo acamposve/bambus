@@ -1,0 +1,85 @@
+<div class="fullpage wizard">
+
+  <div class="wizard-header">
+    <h2>Recarga</h2>
+  </div>
+
+  
+  <div class="wizard-body">
+
+    <!-- div ng-if="processStep == 0" -->
+    <div>
+      <h1>Preparando la recarga</h1>
+  
+      <div class="step-instructions" style="color:#111111">
+        Por favor espere mientras preparamos la recarga...
+      </div> 
+
+      <div >
+        <div class="spinner spinner-white">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+          <div class="bounce4"></div>
+        </div>
+      </div>
+
+      <div class="bt-status-box">{{status}}</div>
+
+    </div>
+
+    <!-- div ng-if="processStep == 1">
+      <div class="card" style="width: 100%;padding: 30px;">
+        <h1>Pago</h1>
+    
+        <div class="step-instructions" style="color:#111111">
+          A continuación deberá realizar el pago mediante una tarjeta de crédito o débito.
+        </div> 
+
+        <div style="text-align: center;display:flex;justify-content: center;">
+          <button type="submit" class="bt-button bt-primary-button bt-green-button bt-button-big" style="margin-top:40px"
+            ng-click="continueToPay()">
+            PAGAR
+          </button>
+        </div>
+
+      </div>
+
+      <div style="text-align: center;display:flex;justify-content: center;">
+        <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px"
+          ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+    <div ng-if="processStep == 2">
+      <h1>Cancelando la recarga</h1>
+  
+      <div class="step-instructions" style="color:#111111">
+        Por favor espere mientras cancelamos la recarga...
+      </div> 
+
+      <div ng-if="!cancelCompleted">
+        <div class="spinner spinner-white">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+          <div class="bounce4"></div>
+        </div>
+      </div>
+
+      <div ng-if="cancelCompleted" style="margin: 40px 0px;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+
+      <div class="bt-status-box">{{status}}</div>
+
+    </div-->
+
+  </div>
+  
+</div>

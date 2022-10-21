@@ -1,0 +1,61 @@
+<div class="fullpage">
+
+
+  <!--div style="position: absolute;width: 100%;top: 150px;">
+    <img src="assets/img/totem-logo-w.png">
+  </div-->
+  <div style="width: 100vw;margin-top: 100px;height: 320px;">
+    <img src="assets/img/home/logo.png" style="width: 400px;margin-bottom: 50px;">
+  </div>
+
+  <div style="margin-top: 100px;">
+    <h1>{{ 'pages.start.title' | translate }}</h1>
+  </div>
+
+  <div class="card-cntr-hori" style="max-height: 500px;" ng-if="initialized">
+
+    <div style="width: 50%;padding: 10px;display: flex;position:relative"> 
+      <div class="card" ng-class="{'card-clickable': newTagEnabled, 'card-disabled': !newTagEnabled}" ripple ripple-class="ripple" ripple-callback="goCVUNew()" ripple-radius="100"
+        style="width: 100%;">
+        <div class="card-img-container">
+          <img src="assets/img/start/tag.png" style="width: 400px;">
+        </div>
+        <div class="card-body">
+          <h2>{{ 'pages.start.card1-title' | translate }}</h2>
+          <p>{{ 'pages.start.card1-desc' | translate }}</p>
+        </div>
+      </div>
+      <div ng-if="!newTagEnabled" style="font-size: 29px;position: absolute;top: 50px;left: 20px;right: 19px;padding: 2px 0px;text-align: center;    color: #FFF;background-color: #ff5722;">
+        Momentáneamente no disponible</div>
+    </div>
+
+    
+
+    <div style="width: 50%;padding: 10px;display: flex;">
+      <div class="card card-clickable" ripple ripple-class="ripple" ripple-callback="goCVURecharge()" ripple-radius="100"
+        style="width: 100%;">
+        <div class="card-img-container">
+          <img src="assets/img/start/recharge_tag.png" style="width: 400px;">
+        </div>
+        <div class="card-body">
+          <h2>{{ 'pages.start.card2-title' | translate }}</h2>
+          <p>{{ 'pages.start.card2-desc' | translate }}</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div style="max-height: 500px;margin-top: 300px;font-size: 34px;color: #FFF;font-weight: 600;" 
+    ng-if="!initialized">
+    Espere...
+  </div>
+
+  <div style="position: absolute;bottom: 50px;">
+    <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px" 
+      ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+      Cancelar
+    </button>
+  </div>
+
+</div>

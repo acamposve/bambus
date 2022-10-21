@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <title>Totem</title>
+
+    <script
+      src="https://browser.sentry-cdn.com/6.9.0/bundle.min.js"
+      integrity="sha384-WO22OE751vRf/HrLRHFis3ipNR16hUk5Q0qW9ascPaSswHI9Q/0ZFMaMvJ0ZgmSI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js"
+      integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/locale/es.min.js"
+      integrity="sha512-8m1fLs4Xjlz54IkVKOIsiayKLpgjN08B3IyUkM2/yLCIPOCvBzgm5awB8ntsQkoKU395Ndf1BPlnP9MM7HQ4aA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/plugin/calendar.min.js"
+      integrity="sha512-4a7YGwyJY5Q5Bk00N5JP998Ea01KANjcbAn5cx9RZLPjGkkzO0Q/1NhfMXPpTQ1phE/jLLBQzMlbXqcayTmfDQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/plugin/updateLocale.min.js"
+      integrity="sha512-5AXG8n/7ZieZPodmu5R2fVCl8MjkA4mrYLXZ6QuhYw1hlAFa6n1YK1PbsF3ewKhfw0py00H8fnmhmnP4jph4Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="//maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyC0aYDd9d-wJHe0pLunCw_POfyaAm6Rfv8"></script>
+
+    <!-- If you include the integration it will be available under Sentry.Integrations.Angular -->
+    <script
+      src="https://browser.sentry-cdn.com/6.9.0/angular.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--
+    <script>
+      Sentry.init({
+        dsn: "https://a98ef300d9c54d2885c6fceec59a85e4@o921732.ingest.sentry.io/5868402",
+        integrations: [new Sentry.Integrations.Angular()],
+      });
+    </script>
+    -->
+
+    <!-- build:css(src) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- Bower dependencies styles will go here after Gulp `inject` task. -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="simple-keyboard/simple-keyboard.css" />
+
+    <!-- build:css(.tmp/serve) styles/app.css -->
+    <!-- inject:css -->
+    <!-- Output styles will go here after Gulp `inject` task. -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div
+      id="noconn"
+      style="
+        display: none;
+        position: fixed;
+        background-color: #000;
+        z-index: 100000;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        padding: 50px;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      "
+    >
+      <img src="assets/img/no-wifi.png" style="margin-bottom: 80px" />
+      <h1>No hay conexión a internet</h1>
+      <h2 style="max-width: 700px; text-align: center">
+        Por favor verifique la conexión a internet para poder volver a activar
+        el servicio del kiosco
+      </h2>
+    </div>
+
+    <div ui-view="" class="uiview"></div>
+
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- Bower dependencies scripts will go here after Gulp `inject` task. -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <script src="simple-keyboard/simple-keyboard.js"></script>
+    <script src="onscan-js/onscan.min.js"></script>
+
+    <!-- build:js({.tmp/partials,.tmp/serve}) scripts/app.js -->
+
+    <!-- inject:js -->
+    <!-- Scripts will go here after Gulp `inject` task. -->
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- Angular templates will be converted to scripts and go here after Gulp `build` task. -->
+    <!-- endinject -->
+
+    <!-- endbuild -->
+  </body>
+</html>

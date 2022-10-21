@@ -1,0 +1,31 @@
+<!-- <div class="modal-header">
+  <h4 class="modal-title">Ingrese un monto a recargar</h4>
+</div> -->
+<div class="modal-body">
+  <div style="display: flex;align-content: center;justify-content: center;flex-direction: column;">
+    <h2 style="text-align: center;
+        font-weight: 800;
+        font-size: 36px;
+        margin: 70px 0px 20px 0px;">Ingrese un monto a recargar</h2> 
+    <form class="wizard-form" name="customAmountForm" id="customAmountForm" novalidate >
+      <div class="form-group" style="margin-top:20px">
+        <input type="text" class="form-control" id="customAmount" name="customAmount" placeholder="" autocomplete="off"
+          ng-focus="inputFocus($event)" style="text-align: center;font-size: 60px;height: 80px;"
+          ng-model="customAmount" ng-change="validateAmount()" ng-minlength="3" ng-required="true">
+        <div class="field-error-cntr">
+          <p ng-show="customAmountForm.customAmount.$error.minlength && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Ingrese un monto mayor o igual a 100</p>
+          <p ng-show="customAmountForm.customAmount.$error.required && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese un monto</p>
+          <p ng-show="maxError && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese un monto entre 100 y 10000</p>
+        </div>
+      </div>
+    </form>
+
+    
+  </div>
+</div>
+<div class="modal-footer" style="flex-direction: column;align-items: center;">
+  <button type="button" class="bt-button bt-primary-button" style="margin-bottom: 30px;"
+    ripple ripple-class="ripple" ripple-callback="confirm(customAmountForm.$valid)" ng-disabled="!validateAmount()" ripple-radius="40">Confirmar</button>
+  <button type="button" class="bt-button " 
+    ripple ripple-class="ripple" ripple-callback="close()" ripple-radius="40">Cancelar</button>
+</div>

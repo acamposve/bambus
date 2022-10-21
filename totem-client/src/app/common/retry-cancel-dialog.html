@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{data.title}}</h4>
+</div>
+<div class="modal-body">
+  <div ng-if="data.errorDesc">
+    {{data.errorDesc}} {{ data.errorCode ? ' ('+data.errorCode+')' : ''}}
+  </div>
+  <div style="display: flex;align-content: center;justify-content: center;line-height: 36px;text-align:center">
+    ¿Desea reintentar la operación?
+  </div>
+</div>
+<div class="modal-footer" style="justify-content: space-evenly;">
+  <button type="button" class="bt-button bt-primary-button " 
+    ripple ripple-class="ripple" ripple-callback="retry(true)" ripple-radius="40">Reintentar</button>
+  <button type="button" class="bt-button bt-link-button" 
+    ripple ripple-class="ripple" ripple-callback="retry(false)" ripple-radius="40">Cancelar</button>
+</div>

@@ -1,0 +1,57 @@
+<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+<div class="fullpage wizard">
+  <div class="wizard-header">
+    <h2>Información</h2>
+  </div>
+
+  <div class="mapCntr">
+    <ui-gmap-google-map ng-if="map" center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+      <ui-gmap-marker coords="map.marker.coords"  idKey="'URHere'" options="markerOptions">
+        <!--ui-gmap-window show="true" closeClick="closeClick()">
+          <div>UTE TA QUI</div>
+        </ui-gmap-window-->
+      </ui-gmap-marker>
+    </ui-gmap-google-map>
+  </div>
+
+  <div class="card" style="width: 90%;padding-bottom: 30px;">
+    <h1>Peajes</h1>
+    <div class="card-body" style="height: 350px;overflow-y: scroll;">
+      <table style="width:100%">
+        <tr ng-repeat="toll in tolls track by toll.name">
+          <td><strong>{{toll.name}}</strong></td>
+          <td>{{toll.address}}</td>
+          <td>
+            <button class="bt-button bt-link-button" 
+              ripple ripple-class="ripple" ripple-callback="tollShow(toll)" ripple-radius="40">
+              Ubicar
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="width: 90%;padding-bottom: 30px;margin-bottom: 30px;">
+    <h1>Tarifas</h1>
+    <div class="card-body" style="overflow-y: scroll;">
+      <table style="width: 100%">
+      <tr>
+        <th style="width: 50%;height: 50px;text-align: center;">Categorias</th>
+        <th style="width: 50%;text-align: center;">Telepeaje</th>
+      </tr>
+      <tr ng-repeat="price in prices track by price.name">
+        <td style="width: 50%;height: 50px;">{{price.name}}</td>
+        <td style="width: 50%">{{price.value}}</td>
+      </tr>
+    </table>
+    </div>
+  </div>
+  <footer>
+    <button type="submit" class="bt-button btn-success" ng-click="goBack()">
+      <span class="material-icons md-36" >west</span>
+      Atrás
+    </button>
+  </footer>
+</div>

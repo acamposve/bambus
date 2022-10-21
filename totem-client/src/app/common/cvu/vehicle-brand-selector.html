@@ -1,0 +1,32 @@
+<div class="modal-body" style="height: 738px">
+  <div class="bt-search-input input-group col-md-12">
+    <input id="bt-search" ng-focus="inputFocus($event)" ng-change="filterBrands()" ng-model="filterText" type="text" class="form-control input-lg" placeholder="Buscar" />
+    <span class="input-group-btn">
+      <button class="btn btn-info btn-lg" type="button">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </span>
+  </div>
+  <div style="margin-top: 30px; display: flex;align-content: center;justify-content: center;flex-direction: column;">
+    <div class="bt-grid-btns bt-grid-cols-3">
+      <div ng-repeat="brand in filteredBrands | limitTo: 12"
+        class="bt-grid-button" ripple ripple-class="ripple" ripple-callback="select(brand)" ripple-radius="50">
+        <span class="bt-grid-button-text">
+          {{brand.name}}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div ng-if="filteredBrands.length > 12 || !filterText || !filterText.length" class="bt-info-box" style="margin-top: 15px; align-items: center; padding: 0;">
+    <div class="bt-info-box-icon">
+      <span class="material-icons-outlined">info</span>
+    </div>
+    <div class="bt-info-box-text">
+      Utilice el buscador para encontrar mas marcas
+    </div>
+  </div>
+</div>
+<div class="modal-footer" style="margin: 0">
+  <button type="button" class="bt-button " ripple ripple-class="ripple" ripple-callback="close()"
+    ripple-radius="40">Cancelar</button>
+</div>

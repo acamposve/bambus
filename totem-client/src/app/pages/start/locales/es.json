@@ -1,0 +1,9 @@
+{
+  "title": "Seleccione una operación",
+  "card1-title": "Solicitar un nuevo Tag",
+  "card1-desc": "Seleccione esta opción para solicitar y recargar un nuevo tag para un nuevo vehiculo",
+  "card1-disclaimer":"La recarga mínima es de $500",
+  "card2-title": "Recargar cuenta",
+  "card2-desc": "Seleccione esta opción para recargar su cuenta para usar con sus tags",
+  "card2-disclaimer":"La recarga mínima es de $500"
+}

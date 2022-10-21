@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "angular"
+  ],
+  "rules": {
+    "angular/no-private-call": "off"
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}

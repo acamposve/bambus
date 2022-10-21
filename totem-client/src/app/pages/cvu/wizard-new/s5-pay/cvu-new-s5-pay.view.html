@@ -1,0 +1,167 @@
+<div class="fullpage wizard">
+
+  <div class="wizard-header">
+    <h2>Solicitud de nuevo tag</h2>
+  </div>
+
+  
+  <div class="wizard-body">
+
+    <div ng-if="payStep == 0">
+      <h1>Preparando la transacción</h1>
+  
+      <div class="step-instructions" style="color:#111111">
+        Por favor espere mientras preparamos la solicitud...
+      </div> 
+
+      <div ng-if="!processCompleted">
+        <div class="spinner spinner-white">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+          <div class="bounce4"></div>
+        </div>
+      </div>
+
+      <div ng-if="processCompleted" style="margin: 40px 0px;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+
+      <div class="bt-status-box">{{processStatus}}</div>
+
+    </div>
+
+    <div ng-if="payStep == 1" style="display: flex;align-items: center;justify-content: center;"> 
+      
+      <div class="card" style="width: 75%;padding-bottom: 30px;">
+
+        <div>
+          <img src="assets/img/creditcard.svg" style="width: 250px;height: 250px;">
+        </div>
+
+        <div class="card-body">
+          <h1>Pago</h1>
+      
+          <div class="step-instructions" style="color:#111111">
+            A continuación deberá realizar el pago mediante una tarjeta de crédito o débito.
+          </div> 
+
+          <div style="margin: 60px 0px 60px 0px;">
+            <div style="font-size: 30px;font-weight: 800;">Monto a pagar</div>
+            <div style="font-size: 60px;font-weight: 800;color: #2196f3;">
+              <span style="font-size:80%">$</span>
+              {{amountToPay}}
+            </div>
+          </div>
+
+          <div style="margin: 30px 0px;">
+            <div style="font-size: 30px;font-weight: 800;">Tarjetas aceptadas</div>
+            <div style="height: 350px;">
+              <img src="assets/img/cards/visa.png" style="width: 120px;">
+              <img src="assets/img/cards/visaDebit.png" style="width: 120px;">
+              <img src="assets/img/cards/master.png" style="width: 70px;">
+              <!-- <img src="assets/img/cards/oca.png" style="width: 120px;"> -->
+              <img src="assets/img/cards/maestro.jpg" style="width: 120px;">
+              <!-- <img src="assets/img/cards/cabal.jpg" style="width: 120px;">
+              <img src="assets/img/cards/creditel.jpg" style="width: 120px;margin-left:10px">
+              <img src="assets/img/cards/anda.jpg" style="width: 120px;">
+              <img src="assets/img/cards/pass-card.jpg" style="width: 120px;">
+              <img src="assets/img/cards/amex.jpg" style="width: 120px;">
+              <img src="assets/img/cards/tarjetad.jpg" style="width: 120px;">
+              <img src="assets/img/cards/cde.png" style="width: 120px;"> -->
+            </div>
+          </div>
+
+          <div style="text-align: center;display:flex;justify-content: center;">
+            <button type="submit" class="bt-button bt-primary-button bt-green-button bt-button-big" style="margin-top:40px"
+              ng-click="continueToPay()">
+              PAGAR
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="position: absolute;bottom: 50px;">
+        <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px" 
+          ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+          Cancelar
+        </button>
+      </div>
+
+    </div>
+
+    <div ng-if="payStep == 2">
+
+      <div class="card" style="width: 90vw;padding-bottom: 30px;">
+
+        <div class="card-body">
+          <h1>Pago</h1>
+          <!-- h2 style="font-size:50px"><span style="font-size:80%">$</span> 500</h2-->
+
+          <div style="max-width:650px;margin:0 auto;">
+            <img src="assets/img/pos-animated2.svg">
+          </div>
+
+          <div class="instructions-bullets">
+            <ul>
+              <!-- li>Toque cualquier tecla en el POS</li-->
+              <li>Acerque o deslice su tarjeta para completar el pago</li>
+              <li>Ingrese su PIN en caso de que el POS lo solicite</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="!payCompleted">
+        <img src="assets/img/arrow-right.svg" 
+          style="  
+          width:230px;
+          animation: bounceH 1s infinite alternate;
+          -webkit-animation: bounceH 1s infinite alternate;">
+      </div>
+
+      <div ng-if="payCompleted" style="margin: 40px 0px;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+
+      <div class="bt-status-box">{{status}}</div>
+
+    </div>
+
+    <div ng-if="payStep == 4">
+      <h1>Cancelando la transacción</h1>
+  
+      <div class="step-instructions" style="color:#111111">
+        Por favor espere mientras cancelamos la solicitud...
+      </div> 
+
+      <div ng-if="!processCompleted">
+        <div class="spinner spinner-white">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+          <div class="bounce4"></div>
+        </div>
+      </div>
+
+      <div ng-if="processCompleted" style="margin: 40px 0px;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+
+      <div class="bt-status-box">{{status}}</div>
+
+    </div>
+
+  </div>
+  
+</div>

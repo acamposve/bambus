@@ -1,0 +1,55 @@
+<div class="fullpage wizard">
+
+  <div class="wizard-header">
+    <button type="submit" class="bt-button bt-text-button wizard-header-left-button" ng-click="goBack()">
+      <span class="material-icons md-36" >west</span>
+      Atras
+    </button>
+    <h2>Solicitud de nuevo tag</h2>
+  </div>
+
+  
+  <div class="wizard-body">
+    <div>
+      <h1 style="color:#FFFFFF;margin-bottom:50px">
+        Seleccione un monto a recargar
+      </h1> 
+      <div class="card-cntr-hori">
+        <div class="card card-clickable card-medium" ng-repeat="amount in data.amounts" 
+          ripple ripple-class="ripple" ripple-callback="select(amount)" ripple-radius="80">
+          <h2 style="font-size:60px;"><span style="font-size:70%;margin-right:10px">$</span>{{ amount.amountNice }}</h2>
+          <p ng-if="false && amount.tollGoThroughs && amount.tollGoThroughs > 0">Equivale a {{ amount.tollGoThroughs }} pasadas</p>
+        </div>
+        <div class="card card-clickable card-medium" 
+          ripple ripple-class="ripple" ripple-callback="selectCustom()" ripple-radius="80">
+          <h2 style="font-size:40px">Ingresar <br>otro monto</h2>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="data.includesTaxes" class="bt-info-box">
+      <div class="bt-info-box-icon">
+        <span class="material-icons-outlined">info</span>
+      </div>
+      <div class="bt-info-box-text">
+        Los precios están en pesos uruguayos e incluyen IVA
+      </div>
+    </div>
+
+    <div style="position: absolute;bottom: 50px;">
+      <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px" 
+        ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+        Cancelar
+      </button>
+    </div>
+
+  </div>
+  
+</div>
+
+<keyboard ng-show="showKeyboard" 
+  layout="keyboardLayout" 
+  input="keyboardInput" 
+  form-name="'customAmountForm'"
+  show-next="false"
+></keyboard>

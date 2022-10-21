@@ -1,0 +1,78 @@
+<div class="fullpage wizard has-keyboard">
+
+  <div class="wizard-header">
+    <button type="submit" class="bt-button bt-text-button wizard-header-left-button"
+      ripple ripple-class="ripple" ripple-callback="goBack()" ripple-radius="40">
+      <span class="material-icons md-36" >west</span>
+      Atras
+    </button>
+    <h2>Solicitud de nuevo tag</h2>
+  </div>
+
+  <div class="wizard-body">
+    <div class="card" style="width: 75%;padding-bottom: 30px;">
+      
+      <h1>Datos personales</h1>
+
+      <div>
+
+        <div class="step-instructions">
+          {{ $scope.operation == 'NEW_CLIENT' ? 'Ingrese sus datos personales para crear una nueva cuenta' : 'Complete sus datos para continuar'}}
+        </div>
+
+        <form class="wizard-form" id="s2Form" name="s2Form" novalidate autocomplete="off">
+
+          <div class="form-group" style="margin-top:20px" ng-if="showFields.userName">
+            <label for="userName">Nombre completo</label>
+            <input type="text" class="form-control" id="userName" name="userName" placeholder="" autocomplete="off"
+              ng-focus="inputFocus($event)" style="text-align: center;" ng-minlength="3" ng-required="true"
+              ng-model="data.userName" >
+            <div class="field-error-cntr">
+              <p ng-show="s2Form.userName.$error.minlength && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese un nombre válido</p>
+              <p ng-show="s2Form.userName.$error.required && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese su nombre completo</p>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:20px" ng-if="showFields.userCel">
+            <label for="userCel">Celular</label>
+            <input type="tel" class="form-control" id="userCel" name="userCel" placeholder="" autocomplete="off"
+              ng-focus="inputFocus($event)"  style="text-align: center;" ng-minlength="6" ng-required="true"
+              ng-model="data.userCel" >
+            <div class="field-error-cntr">
+              <p ng-show="s2Form.userCel.$error.minlength && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese un número de celular válido</p>
+              <p ng-show="s2Form.userCel.$error.required && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese su número de celular</p>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top:20px; width: 400px;"  ng-if="showFields.userEmail">
+            <label for="userEmail">Correo electrónico</label>
+            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="" autocomplete="off"
+              ng-focus="inputFocus($event)"  style="text-align: center;" ng-minlength="6" ng-required="true"
+              ng-model="data.userEmail" > 
+            <div class="field-error-cntr">
+              <p ng-show="s2Form.userEmail.$error.minlength && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese un correo electrónico válido</p>
+              <p ng-show="s2Form.userEmail.$error.required && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese su correo electrónico</p>
+            </div>
+          </div>
+
+          <button type="submit" class="bt-button bt-primary-button" style="margin-top:40px" ng-disabled="!s2Form.$valid"
+            ripple ripple-class="ripple" ripple-callback="continue(s2Form.$valid)" ripple-radius="40">
+            Continuar
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <div style="position: absolute;bottom: 50px;">
+      <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px"
+        ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+        Cancelar
+      </button>
+    </div>
+    
+  </div>  
+</div>
+
+<keyboard ng-show="showKeyboard" layout="keyboardLayout" input="keyboardInput" form-name="'s2Form'" show-next="true"></keyboard>

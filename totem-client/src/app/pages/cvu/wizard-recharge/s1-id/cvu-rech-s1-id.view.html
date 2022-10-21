@@ -1,0 +1,78 @@
+<div class="fullpage wizard has-keyboard">
+
+  <div class="wizard-header">
+    <button type="submit" class="bt-button bt-text-button wizard-header-left-button" ng-click="goBack()">
+      <span class="material-icons md-36" >west</span>
+      Atras
+    </button>
+    <h2>Recargar cuenta</h2>
+  </div>
+  
+  <div class="wizard-body">
+    <div class="card" style="width: 75%;padding-bottom: 30px;">
+      
+      <h1>Identificación</h1>
+
+      <div class="step-instructions">
+        Ingrese su número de documento para comenzar
+      </div>
+
+      <form class="wizard-form" name="s1Form" id="s1Form" novalidate>
+
+        <label>Tipo de documento</label>
+        <div class="bt-radio-tile-group">
+          <div class="input-container">
+            <input id="userDocTypeCI" name="userDocTypeCI" class="radio-button" type="radio" ng-value="2" 
+              ng-focus="inputFocus($event)" ng-model="data.userDocType" checked="checked" ng-click="docTypeSelect()"/>
+            <div class="radio-tile">
+              <label for="userDocTypeCI" class="radio-tile-label">{{ 'pages.cvu.wizard-recharge.s1-id.docType1' | translate }}</label>
+            </div>
+          </div>
+          <div class="input-container">
+            <input id="userDocType" name="userDocType" class="radio-button" type="radio" name="radio" ng-value="1" 
+              ng-focus="inputFocus($event)" ng-model="data.userDocType" ng-click="docTypeSelect()" />
+            <div class="radio-tile">
+              <label for="userDocType" class="radio-tile-label">{{ 'pages.cvu.wizard-recharge.s1-id.docType2' | translate }}</label>
+            </div>
+          </div>
+          <div class="input-container">
+            <input id="userDocType" name="userDocType" class="radio-button" type="radio" name="radio" ng-value="3" 
+             ng-focus="inputFocus($event)" ng-model="data.userDocType" ng-click="docTypeSelect()" />
+            <div class="radio-tile">
+              <label for="userDocType" class="radio-tile-label">{{ 'pages.cvu.wizard-recharge.s1-id.docType3' | translate }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top:20px">
+          <label for="userDocValue">{{s1Form.userDocType.$modelValue == 1 ? 'RUT' : s1Form.userDocType.$modelValue == 2 ? 'Cédula' : 'Documento extranjero'}}</label>
+          <input type="text" class="form-control" id="userDocValue" name="userDocValue" placeholder="" autocomplete="off"
+            ng-focus="inputFocus($event)" style="text-align: center;"
+            ng-model="data.userDocValue" ng-minlength="{{s1Form.userDocType.$modelValue == 1 ? 12 : s1Form.userDocType.$modelValue == 2 ? 7 : 7}}"  ng-required="true">
+          <div class="field-error-cntr">
+            <p ng-show="!(s1Form.userDocValue.$error.minlength || s1Form.userDocValue.$error.required) && !validateDocValue()" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Ingrese un número de documento válido</p>
+            <p ng-show="s1Form.userDocValue.$error.minlength && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Ingrese un número de documento válido</p>
+            <p ng-show="s1Form.userDocValue.$error.required && showErrors" class="field-error"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Por favor ingrese su número de {{s1Form.userDocType.$modelValue == 1 ? 'RUT' : s1Form.userDocType.$modelValue == 2 ? 'cédula' : 'documento extranjero'}}</p>
+          </div>
+        </div>
+
+        <button type="button" class="bt-button bt-primary-button" style="margin-top:40px" ng-disabled="!s1Form.$valid || !validateDocValue()"
+          ripple ripple-class="ripple" ripple-callback="continue(s1Form.$valid)" ripple-radius="40">
+          Continuar
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </button>
+      </form>
+
+    </div>
+
+    <div style="position: absolute;bottom: 200px;">
+      <button type="submit" class="bt-button bt-outline-button" style="margin-top:40px"
+        ripple ripple-class="ripple" ripple-callback="cancel()" ripple-radius="40">
+        Cancelar
+      </button>
+    </div>
+  </div>
+  
+</div>
+
+<keyboard ng-show="showKeyboard" layout="keyboardLayout" input="keyboardInput" form-name="'s1Form'"></keyboard>
